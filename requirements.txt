@@ -10,4 +10,5 @@ yapf
 python-gitlab
 twine
 nltk
+nltk.download('stopwords')
 datetime
