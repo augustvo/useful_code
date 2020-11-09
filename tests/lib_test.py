@@ -7,7 +7,7 @@ import pandas as pd
 # Import from our lib
 from useful_code.lib import clean_data
 import pytest
-
+from useful_code.lib import cleaner
 
 def test_clean_data():
     datapath = os.path.dirname(os.path.abspath(useful_code.__file__)) + '/data'
@@ -18,5 +18,5 @@ def test_clean_data():
     out = clean_data(df)
     assert out.shape == (985, 119)
 
-def cleaner():
-    assert cleaner("my 99 NAME is Banana!") == "my name is banana"
+def test_cleaner():
+    assert cleaner("my 99 NAME is Banana!") == ['name', 'banana']
