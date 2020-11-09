@@ -55,3 +55,36 @@ if __name__ == '__main__':
     df = pd.read_csv('{}/data/data.csv.gz'.format(folder_source))
     clean_data = clean_data(df)
     print(' dataframe cleaned')
+
+import string
+def remove_punctuations(text):
+    for punctuation in string.punctuation:
+        text = text.replace(punctuation, '')
+    return text
+def small(text):
+    text = text.lower()
+    return text
+def num_remove(text):
+    text = ''.join(word for word in text if not word.isdigit())
+    return text
+from nltk.corpus import stopwords
+from nltk.tokenize import word_tokenize
+stop_words = set(stopwords.words('english'))
+def stopwords(text):
+    word_tokens = word_tokenize(text)
+    text = [w for w in word_tokens if not w in stop_words]
+    return text
+from nltk.stem import WordNetLemmatizer
+def lemmatize(text):
+    lemmatizer = WordNetLemmatizer()
+    lemmatized = [lemmatizer.lemmatize(word) for word in text]
+    text = lemmatized
+    return text
+def cleaner(text):
+    text = remove_punctuations(text)
+    text = small(text)
+    text = num_remove(text)
+    text = stopwords(text)
+    text = lemmatize(text)
+    return text
+
