@@ -9,6 +9,5 @@ black
 yapf
 python-gitlab
 twine
-nltk
 nltk==3.5
 datetime
