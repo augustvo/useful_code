@@ -10,5 +10,4 @@ yapf
 python-gitlab
 twine
 nltk
-string
 datetime
